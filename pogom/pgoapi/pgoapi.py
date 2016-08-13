@@ -100,11 +100,11 @@ class PGoApi:
 
     def add_accounts(self, accounts):
         for account in accounts:
-            username, password = account['username'], account['password']
+            username, password, provider = account['username'], account['password'], account['provider']
             if not isinstance(username, six.string_types) or not isinstance(password, six.string_types):
                 raise AuthException("Username/password not correctly specified")
 
-            provider = account.get('provider', 'ptc')
+            #provider = account.get('provider', 'ptc')
             if provider == 'ptc':
                 auth_provider = AuthPtc(username, password)
             elif provider == 'google':

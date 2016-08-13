@@ -103,8 +103,8 @@ class Pogom(Flask):
         if accounts_str:
             for a in accounts_str.splitlines():
                 a = a.split(":")
-                if (len(a) == 2) and (a[0].strip() not in usernames):
-                    accounts_parsed.append({'username': a[0].strip(), 'password': a[1].strip()})
+                if (len(a) == 3) and (a[0].strip() not in usernames): 
+                    accounts_parsed.append({'username': a[0].strip(), 'password': a[1].strip(),'provider':a[2].strip()})
                     usernames.add(a[0].strip())
 
         config['ACCOUNTS'] = accounts_parsed
